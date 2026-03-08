@@ -1,6 +1,7 @@
 package main
 
 import (
+	// "fmt"
 	"fmt"
 	"maps"
 	// "slices"
@@ -18,12 +19,19 @@ func main() {
 	// height := []int{4, 3, 2, 1, 4}
 	// height := []int{1, 2, 1}
 	// height := []int{8, 7, 2, 1}
-	height := []int{1, 2, 3, 4, 5, 25, 24, 3, 4}
+	// height := []int{1, 2, 3, 4, 5, 25, 24, 3, 4}
 	// height := []int{5, 2, 12, 1, 5, 3, 4, 11, 9, 4}
 	// height := []int{1, 2, 4, 3}
 	// height := []int{4, 6, 4, 4, 6, 2, 6, 7, 11, 2}
-	fmt.Println(leetcode_11(height))
-	fmt.Println(leetcode_11_1(height))
+	// fmt.Println(leetcode_11(height))
+	// fmt.Println(leetcode_11_1(height))
+
+	fmt.Println(zigzag("PAYPALISHIRING", 3))
+	fmt.Println(zigzag("PAYPALISHIRING", 4))
+	fmt.Println(zigzag("A", 1))
+	fmt.Println(zigzag("A", 2))
+	fmt.Println(zigzag("ABCD", 3))
+	fmt.Println(zigzag("ABCD", 2))
 }
 
 func leetcode_217() bool {
