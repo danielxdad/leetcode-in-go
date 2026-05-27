@@ -1,19 +1,24 @@
 package main
 
 import (
-	// "fmt"
-	"fmt"
 	"maps"
+	"math/rand"
+	"slices"
+
 	// "slices"
+	"fmt"
+	"time"
 )
 
 func main() {
 	// leetcode_217()
 
+	// =========================================================
 	// fmt.Println(leetcode_242("anagram", "nagaram"))
 	// fmt.Println(leetcode_242("rat", "car"))
 	// fmt.Println(leetcode_242("aacc", "ccac"))
 
+	// =========================================================
 	// height := []int{1, 1}
 	// height := []int{1, 8, 6, 2, 5, 4, 8, 3, 7}
 	// height := []int{4, 3, 2, 1, 4}
@@ -26,12 +31,47 @@ func main() {
 	// fmt.Println(leetcode_11(height))
 	// fmt.Println(leetcode_11_1(height))
 
-	fmt.Println(zigzag("PAYPALISHIRING", 3))
-	fmt.Println(zigzag("PAYPALISHIRING", 4))
-	fmt.Println(zigzag("A", 1))
-	fmt.Println(zigzag("A", 2))
-	fmt.Println(zigzag("ABCD", 3))
-	fmt.Println(zigzag("ABCD", 2))
+	// =========================================================
+	// fmt.Println(zigzag("PAYPALISHIRING", 3))
+	// fmt.Println(zigzag("PAYPALISHIRING", 4))
+	// fmt.Println(zigzag("A", 1))
+	// fmt.Println(zigzag("A", 2))
+	// fmt.Println(zigzag("ABCD", 3))
+	// fmt.Println(zigzag("ABCD", 2))
+
+	// =========================================================
+	data := make([]int, 0, 1000)
+	// data := []int{-4, -1, 0, 3, 10}
+
+	for range cap(data) {
+		if rand.Intn(2) > 0 {
+			data = append(data, rand.Intn(cap(data))*-1)
+		} else {
+			data = append(data, rand.Intn(cap(data)))
+		}
+	}
+
+	slices.Sort(data)
+	// data = slices.Compact(data)
+	// fmt.Println(len(data), cap(data))
+	fmt.Println(data[0:5], "...", data[len(data)-5:])
+
+	n := 100_000
+	start := time.Now()
+	for range n {
+		lc_squares_of_sorted_array_linear(data)
+	}
+	linearDuration := time.Since(start)
+	fmt.Println(linearDuration)
+
+	start = time.Now()
+	for range n {
+		lc_squares_of_sorted_array_nlogn(data)
+	}
+	nlognDuration := time.Since(start)
+	fmt.Println(nlognDuration)
+
+	fmt.Println("nlogn / linear: ", float64(nlognDuration.Milliseconds())/float64(linearDuration.Milliseconds()))
 }
 
 func leetcode_217() bool {
