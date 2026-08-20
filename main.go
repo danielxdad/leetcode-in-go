@@ -1,13 +1,9 @@
 package main
 
 import (
-	"maps"
-	"math/rand"
-	"slices"
-
-	// "slices"
 	"fmt"
-	"time"
+	"maps"
+	// "slices"
 )
 
 func main() {
@@ -40,38 +36,42 @@ func main() {
 	// fmt.Println(zigzag("ABCD", 2))
 
 	// =========================================================
-	data := make([]int, 0, 1000)
-	// data := []int{-4, -1, 0, 3, 10}
+	// data := make([]int, 0, 1000)
+	// // data := []int{-4, -1, 0, 3, 10}
 
-	for range cap(data) {
-		if rand.Intn(2) > 0 {
-			data = append(data, rand.Intn(cap(data))*-1)
-		} else {
-			data = append(data, rand.Intn(cap(data)))
-		}
-	}
+	// for range cap(data) {
+	// 	if rand.Intn(2) > 0 {
+	// 		data = append(data, rand.Intn(cap(data))*-1)
+	// 	} else {
+	// 		data = append(data, rand.Intn(cap(data)))
+	// 	}
+	// }
 
-	slices.Sort(data)
-	// data = slices.Compact(data)
-	// fmt.Println(len(data), cap(data))
-	fmt.Println(data[0:5], "...", data[len(data)-5:])
+	// slices.Sort(data)
+	// // data = slices.Compact(data)
+	// // fmt.Println(len(data), cap(data))
+	// fmt.Println(data[0:5], "...", data[len(data)-5:])
 
-	n := 100_000
-	start := time.Now()
-	for range n {
-		lc_squares_of_sorted_array_linear(data)
-	}
-	linearDuration := time.Since(start)
-	fmt.Println(linearDuration)
+	// n := 100_000
+	// start := time.Now()
+	// for range n {
+	// 	lc_squares_of_sorted_array_linear(data)
+	// }
+	// linearDuration := time.Since(start)
+	// fmt.Println(linearDuration)
 
-	start = time.Now()
-	for range n {
-		lc_squares_of_sorted_array_nlogn(data)
-	}
-	nlognDuration := time.Since(start)
-	fmt.Println(nlognDuration)
+	// start = time.Now()
+	// for range n {
+	// 	lc_squares_of_sorted_array_nlogn(data)
+	// }
+	// nlognDuration := time.Since(start)
+	// fmt.Println(nlognDuration)
 
-	fmt.Println("nlogn / linear: ", float64(nlognDuration.Milliseconds())/float64(linearDuration.Milliseconds()))
+	// fmt.Println("nlogn / linear: ", float64(nlognDuration.Milliseconds())/float64(linearDuration.Milliseconds()))
+	// ===============================================================================================================
+
+	fmt.Println(distribute_elements_into_two_arrays_3069([]int{2, 1, 3}))
+	fmt.Println(distribute_elements_into_two_arrays_3069([]int{5, 4, 3, 8}))
 }
 
 func leetcode_217() bool {
